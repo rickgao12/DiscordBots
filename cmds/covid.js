@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, command, args) => {
 				.setColor('#0099ff')
 				.setTitle(findCountry.Country)
 				.setThumbnail('https://i.imgur.com/LBnCThp.png')
-				.addField('New Confirmed: ', commaNumber(findCountry.NewConfirmed), true)
+				.addField(`New Confirmed: `, commaNumber(findCountry.NewConfirmed), true)
 				.addField('Total Confirmed: ', commaNumber(findCountry.TotalConfirmed), true)
 				.addField('\u200b', '\u200b', true)
 				.addField('New Deaths: ', commaNumber(findCountry.NewDeaths), true)

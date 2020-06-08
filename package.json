@@ -15,6 +15,7 @@
     "comma-number": "^2.0.1",
     "discord": "^0.8.2",
     "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
     "opgg-scrape": "^1.0.3",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
