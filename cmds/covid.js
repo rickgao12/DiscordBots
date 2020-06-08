@@ -12,6 +12,7 @@ module.exports.run = async (bot, message, command, args) => {
 			const embed = new Discord.MessageEmbed()
 				.setTitle('Updated COVID-19 Numbers')
 				.setColor(0xeb3434)
+				.setThumbnail('https://i.imgur.com/LBnCThp.png')
 				.addField('New Confirmed: ', commaNumber(Global.NewConfirmed), true)
 				.addField('Total Confirmed: ', commaNumber(Global.TotalConfirmed))
 				.addField('New Deaths: ', commaNumber(Global.NewDeaths))
@@ -33,7 +34,7 @@ module.exports.run = async (bot, message, command, args) => {
 			});
 			const lastUpdated = new Date(findCountry.Date).toDateString();
 			const embed = new Discord.MessageEmbed()
-				.setColor('#0099ff')
+				.setColor(0xeb3434)
 				.setTitle(findCountry.Country)
 				.setThumbnail('https://i.imgur.com/LBnCThp.png')
 				.addField(`New Confirmed: `, commaNumber(findCountry.NewConfirmed), true)
