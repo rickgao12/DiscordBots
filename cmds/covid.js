@@ -7,18 +7,23 @@ module.exports.run = async (bot, message, command, args) => {
 		const url = 'https://api.covid19api.com/summary';
 		const data = await axios.get(url);
 		const { Global, Countries } = data.data;
+		const lastUpdated = new Date(data.data.Date).toDateString();
 
 		if (!args) {
 			const embed = new Discord.MessageEmbed()
-				.setTitle('Updated COVID-19 Numbers')
+				.setTitle('COVID-19 Summary')
 				.setColor(0xeb3434)
 				.setThumbnail('https://i.imgur.com/LBnCThp.png')
 				.addField('New Confirmed: ', commaNumber(Global.NewConfirmed), true)
-				.addField('Total Confirmed: ', commaNumber(Global.TotalConfirmed))
-				.addField('New Deaths: ', commaNumber(Global.NewDeaths))
-				.addField('Total deaths:', commaNumber(Global.TotalDeaths))
-				.addField('New Recovered: ', commaNumber(Global.NewRecovered))
-				.addField('Total recovered: ', commaNumber(Global.TotalRecovered));
+				.addField('Total Confirmed: ', commaNumber(Global.TotalConfirmed), true)
+				.addField('\u200b', '\u200b', true)
+				.addField('New Deaths: ', commaNumber(Global.NewDeaths), true)
+				.addField('Total deaths:', commaNumber(Global.TotalDeaths), true)
+				.addField('\u200b', '\u200b', true)
+				.addField('New Recovered: ', commaNumber(Global.NewRecovered), true)
+				.addField('Total recovered: ', commaNumber(Global.TotalRecovered), true)
+				.addField('\u200b', '\u200b', true)
+				.setFooter(`Last Updated: ${lastUpdated}`);
 
 			message.channel.send(embed);
 		} else {
